@@ -107,6 +107,46 @@
     .dot.active, .dot:hover {
       background-color: #363636;
     }
+    
+    /* Results carousel styles */
+    .results-carousel {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .result-slide {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .result-slide.active {
+      display: block;
+    }
+    
+    .result-slide img {
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .result-dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+    
+    .result-dot.active, .result-dot:hover {
+      background-color: #363636;
+    }
   </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -120,10 +160,19 @@
     let currentSlide = 0;
     let slides, dots;
     
+    // Results carousel variables
+    let currentResultSlide = 0;
+    let resultSlides, resultDots;
+    
     function initCarousel() {
       slides = document.querySelectorAll('.figure-slide');
       dots = document.querySelectorAll('.dot');
       showSlide(0);
+      
+      // Initialize results carousel
+      resultSlides = document.querySelectorAll('.result-slide');
+      resultDots = document.querySelectorAll('.result-dot');
+      showResultSlide(0);
     }
     
     function showSlide(n) {
@@ -155,6 +204,38 @@
     function currentSlideSet(n) {
       currentSlide = n;
       showSlide(currentSlide);
+    }
+    
+    // Results carousel functions
+    function showResultSlide(n) {
+      if (!resultSlides || !resultDots) return;
+      
+      // Hide all result slides and deactivate all result dots
+      resultSlides.forEach(slide => slide.classList.remove('active'));
+      resultDots.forEach(dot => dot.classList.remove('active'));
+      
+      // Handle wrap around
+      if (n >= resultSlides.length) currentResultSlide = 0;
+      if (n < 0) currentResultSlide = resultSlides.length - 1;
+      
+      // Show current result slide and activate current result dot
+      if (resultSlides[currentResultSlide]) resultSlides[currentResultSlide].classList.add('active');
+      if (resultDots[currentResultSlide]) resultDots[currentResultSlide].classList.add('active');
+    }
+    
+    function nextResultSlide() {
+      currentResultSlide++;
+      showResultSlide(currentResultSlide);
+    }
+    
+    function prevResultSlide() {
+      currentResultSlide--;
+      showResultSlide(currentResultSlide);
+    }
+    
+    function currentResultSlideSet(n) {
+      currentResultSlide = n;
+      showResultSlide(currentResultSlide);
     }
     
     // Initialize when page loads
@@ -379,6 +460,79 @@
           <span class="dot" onclick="currentSlideSet(1)"></span>
           <span class="dot" onclick="currentSlideSet(2)"></span>
           <span class="dot" onclick="currentSlideSet(3)"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Result Figures</h2>
+    
+    <div class="results-carousel">
+      <div class="result-slide">
+        <img src="./static/images/5_exp_comparison.jpg" alt="Experimental Comparison">
+        <p class="figure-caption">
+          <strong>Figure 5:</strong> Experimental comparison between simulated and measured thermal profiles during 3D printing. The simulation results show excellent agreement with experimental temperature measurements, validating the accuracy of the proposed thermal simulation framework.
+        </p>
+      </div>
+
+      <div class="result-slide">
+        <img src="./static/images/6_bunny_sim.jpg" alt="Stanford Bunny Simulation">
+        <p class="figure-caption">
+          <strong>Figure 6:</strong> Thermal simulation results for the Stanford bunny geometry showing temperature distribution evolution during the printing process. The visualization demonstrates the framework's capability to handle complex geometries with detailed thermal gradients.
+        </p>
+      </div>
+
+      <div class="result-slide">
+        <img src="./static/images/7_benchy_sim.jpg" alt="Benchy Simulation">
+        <p class="figure-caption">
+          <strong>Figure 7:</strong> Temperature field simulation results for the 3DBenchy model, showcasing the thermal behavior in overhangs and complex features. The results highlight the framework's ability to capture thermal variations in challenging geometric regions.
+        </p>
+      </div>
+
+      <div class="result-slide">
+        <img src="./static/images/8_moai_sim.jpg" alt="Moai Simulation">
+        <p class="figure-caption">
+          <strong>Figure 8:</strong> Thermal simulation of the Moai statue geometry demonstrating the scalability of the framework to larger and more complex models. The temperature gradients show the heat distribution patterns throughout the tall structure.
+        </p>
+      </div>
+
+      <div class="result-slide">
+        <img src="./static/images/9_bunny_sparse_sim.jpg" alt="Sparse Infill Simulation">
+        <p class="figure-caption">
+          <strong>Figure 9:</strong> Stanford bunny thermal simulation with sparse infill patterns, illustrating how the framework handles different infill densities and their impact on thermal behavior during the printing process.
+        </p>
+      </div>
+
+      <div class="result-slide">
+        <img src="./static/images/10_bunny_sparse_topView.jpg" alt="Top View Analysis">
+        <p class="figure-caption">
+          <strong>Figure 10:</strong> Top view thermal analysis of the Stanford bunny with sparse infill, providing insights into the layer-by-layer thermal distribution and cooling patterns from above.
+        </p>
+      </div>
+
+      <div class="result-slide">
+        <img src="./static/images/11_bunny_benchy_prints.jpg" alt="Physical Print Validation">
+        <p class="figure-caption">
+          <strong>Figure 11:</strong> Physical prints of the Stanford bunny and 3DBenchy models used for experimental validation of the thermal simulation framework, demonstrating the practical applicability of the simulation results.
+        </p>
+      </div>
+
+      <div class="carousel-nav">
+        <button onclick="prevResultSlide()">❮ Previous</button>
+        <button onclick="nextResultSlide()">Next ❯</button>
+        
+        <div class="dots">
+          <span class="result-dot" onclick="currentResultSlideSet(0)"></span>
+          <span class="result-dot" onclick="currentResultSlideSet(1)"></span>
+          <span class="result-dot" onclick="currentResultSlideSet(2)"></span>
+          <span class="result-dot" onclick="currentResultSlideSet(3)"></span>
+          <span class="result-dot" onclick="currentResultSlideSet(4)"></span>
+          <span class="result-dot" onclick="currentResultSlideSet(5)"></span>
+          <span class="result-dot" onclick="currentResultSlideSet(6)"></span>
         </div>
       </div>
     </div>
