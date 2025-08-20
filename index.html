@@ -148,6 +148,76 @@
     .result-dot.active, .result-dot:hover {
       background-color: #363636;
     }
+    
+    /* Responsive typography for mobile devices */
+    @media screen and (max-width: 768px) {
+      .title.is-2 {
+        font-size: 1.75rem !important;
+      }
+      
+      .title.is-3 {
+        font-size: 1.5rem !important;
+      }
+      
+      .title.is-4 {
+        font-size: 1.25rem !important;
+      }
+      
+      .subtitle.is-6 {
+        font-size: 1rem !important;
+      }
+      
+      .is-size-6 {
+        font-size: 0.875rem !important;
+      }
+      
+      .figure-caption {
+        font-size: 0.8rem !important;
+      }
+      
+      .content p {
+        font-size: 0.9rem !important;
+      }
+      
+      /* Adjust carousel button sizes for mobile */
+      .carousel-nav button {
+        padding: 8px 16px;
+        font-size: 0.875rem;
+      }
+    }
+    
+    /* For very small screens (phones in portrait) */
+    @media screen and (max-width: 480px) {
+      .title.is-2 {
+        font-size: 1.5rem !important;
+      }
+      
+      .title.is-3 {
+        font-size: 1.25rem !important;
+      }
+      
+      .title.is-4 {
+        font-size: 1.125rem !important;
+      }
+      
+      .subtitle.is-6 {
+        font-size: 0.875rem !important;
+      }
+      
+      .is-size-6 {
+        font-size: 0.8rem !important;
+      }
+      
+      .figure-caption {
+        font-size: 0.75rem !important;
+      }
+      
+      .carousel-nav button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        margin: 0 3px;
+      }
+    }
   </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
