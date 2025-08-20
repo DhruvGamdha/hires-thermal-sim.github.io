@@ -200,36 +200,36 @@
 
 <section class="hero is-light is-small">
   <div class="hero-body">
-    <div class="container">
+    <div class="container is-max-desktop">
       <div id="results-carousel" class="carousel results-carousel">
-        <div class="item">
-          <div class="has-text-centered">
-            <iframe src="./static/images/1_flowChart.pdf" style="width: 100%; height: 400px; border: none;"></iframe>
-            <p class="subtitle is-6 has-text-centered" style="margin-top: 10px;">
+        <div class="item" style="width: 100%; flex: 0 0 100%;">
+          <div class="has-text-centered" style="padding: 20px;">
+            <iframe src="./static/images/1_flowChart.pdf" style="width: 90%; height: 500px; border: none; max-width: 800px;"></iframe>
+            <p class="subtitle is-6 has-text-centered" style="margin-top: 15px; max-width: 800px; margin-left: auto; margin-right: auto;">
               <strong>Figure 1:</strong> Illustration of the proposed voxel-based, octree-enabled FEM framework for real-time 3D-printing simulations. Starting from a standard G-code model (left), the part is converted into a voxel representation where each newly deposited voxel (green) expands the active region. An octree mesh (center) then refines or coarsens elements based on print progression, enabling efficient assembly and solution of the evolving thermal problem. Finally, the simulation iterates this deposition-and-solve process until the full 3D object (right) is printed. 
             </p>
           </div>
         </div>
-        <div class="item">
-          <div class="has-text-centered">
-            <iframe src="./static/images/2_VbV_printing_cube_bunny.pdf" style="width: 100%; height: 400px; border: none;"></iframe>
-            <p class="subtitle is-6 has-text-centered" style="margin-top: 10px;">
+        <div class="item" style="width: 100%; flex: 0 0 100%;">
+          <div class="has-text-centered" style="padding: 20px;">
+            <iframe src="./static/images/2_VbV_printing_cube_bunny.pdf" style="width: 90%; height: 500px; border: none; max-width: 800px;"></iframe>
+            <p class="subtitle is-6 has-text-centered" style="margin-top: 15px; max-width: 800px; margin-left: auto; margin-right: auto;">
               <strong>Figure 2:</strong>  Voxel-by-voxel printing order for the cube and Stanford bunny geometry. The figure shows the 3D printing of the voxel geometry. The red voxels are the ones that have been printed recently, gray voxels are the ones that have been printed previously, and the white voxels are the ones that are yet to be printed. Orange arrow shows the contour print direction and the yellow arrow shows the infill print direction. 
             </p>
           </div>
         </div>
-        <div class="item">
-          <div class="has-text-centered">
-            <iframe src="./static/images/3_voxel_mesh_slice.pdf" style="width: 100%; height: 400px; border: none;"></iframe>
-            <p class="subtitle is-6 has-text-centered" style="margin-top: 10px;">
+        <div class="item" style="width: 100%; flex: 0 0 100%;">
+          <div class="has-text-centered" style="padding: 20px;">
+            <iframe src="./static/images/3_voxel_mesh_slice.pdf" style="width: 90%; height: 500px; border: none; max-width: 800px;"></iframe>
+            <p class="subtitle is-6 has-text-centered" style="margin-top: 15px; max-width: 800px; margin-left: auto; margin-right: auto;">
               <strong>Figure 3:</strong> Voxel-based geometry, octree mesh, and 2D slices at three stages of the build for both a cube (left) and the Stanford Bunny (right). From top to bottom, each row represents an increasingly complete print. The left column in each block shows the voxel geometry at the given time, the center column shows the corresponding octree mesh (with inactive elements in wireframe), and the right column presents a mesh slice for clarity. This progression illustrates how the geometric representation, meshing strategy, and cross-sectional patterns evolve as additional layers are deposited.
             </p>
           </div>
         </div>
-        <div class="item">
-          <div class="has-text-centered">
-            <iframe src="./static/images/4_voxel_initialization.pdf" style="width: 100%; height: 400px; border: none;"></iframe>
-            <p class="subtitle is-6 has-text-centered" style="margin-top: 10px;">
+        <div class="item" style="width: 100%; flex: 0 0 100%;">
+          <div class="has-text-centered" style="padding: 20px;">
+            <iframe src="./static/images/4_voxel_initialization.pdf" style="width: 90%; height: 500px; border: none; max-width: 800px;"></iframe>
+            <p class="subtitle is-6 has-text-centered" style="margin-top: 15px; max-width: 800px; margin-left: auto; margin-right: auto;">
               <strong>Figure 4:</strong> Illustration of the voxel-based deposition process at two consecutive time steps 𝑡 and 𝑡 + 𝛥𝑡. Existing printed voxels (gray) transfer heat through both conduction (orange arrows) and convection (red arrows). At time 𝑡+𝛥𝑡, a newly filled voxel (red) is added, expanding the active region in which heat is solved. The build plate (blue) is held at a prescribed temperature boundary condition. This schematic highlights how voxel activation, heat conduction, and convection boundaries are dynamically updated throughout the printing process.
             </p>
           </div>
