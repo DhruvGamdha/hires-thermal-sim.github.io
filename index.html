@@ -118,18 +118,28 @@
   <script>
     // Simple carousel functionality
     let currentSlide = 0;
-    const slides = document.querySelectorAll('.figure-slide');
-    const dots = document.querySelectorAll('.dot');
+    let slides, dots;
+    
+    function initCarousel() {
+      slides = document.querySelectorAll('.figure-slide');
+      dots = document.querySelectorAll('.dot');
+      showSlide(0);
+    }
     
     function showSlide(n) {
+      if (!slides || !dots) return;
+      
+      // Hide all slides and deactivate all dots
       slides.forEach(slide => slide.classList.remove('active'));
       dots.forEach(dot => dot.classList.remove('active'));
       
+      // Handle wrap around
       if (n >= slides.length) currentSlide = 0;
       if (n < 0) currentSlide = slides.length - 1;
       
-      slides[currentSlide].classList.add('active');
-      dots[currentSlide].classList.add('active');
+      // Show current slide and activate current dot
+      if (slides[currentSlide]) slides[currentSlide].classList.add('active');
+      if (dots[currentSlide]) dots[currentSlide].classList.add('active');
     }
     
     function nextSlide() {
@@ -149,7 +159,7 @@
     
     // Initialize when page loads
     document.addEventListener('DOMContentLoaded', function() {
-      showSlide(currentSlide);
+      initCarousel();
     });
   </script>
 </head>
@@ -316,7 +326,7 @@
     <h2 class="title is-3 has-text-centered">Research Figures</h2>
     
     <div class="figures-carousel">
-      <div class="figure-slide active">
+      <div class="figure-slide">
         <img src="./static/images/1_flowChart.jpg" alt="Framework Overview">
         <p class="figure-caption">
           <strong>Figure 1:</strong> Illustration of the proposed voxel-based, octree-enabled FEM framework for real-time 3D-printing simulations. Starting from a standard G-code model (left), the part is converted into a voxel representation where each newly deposited voxel (green) expands the active region. An octree mesh (center) then refines or coarsens elements based on print progression, enabling efficient assembly and solution of the evolving thermal problem. Finally, the simulation iterates this deposition-and-solve process until the full 3D object (right) is printed.
@@ -349,7 +359,7 @@
         <button onclick="nextSlide()">Next ❯</button>
         
         <div class="dots">
-          <span class="dot active" onclick="currentSlideSet(0)"></span>
+          <span class="dot" onclick="currentSlideSet(0)"></span>
           <span class="dot" onclick="currentSlideSet(1)"></span>
           <span class="dot" onclick="currentSlideSet(2)"></span>
           <span class="dot" onclick="currentSlideSet(3)"></span>
