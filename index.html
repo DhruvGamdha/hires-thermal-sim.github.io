@@ -223,15 +223,6 @@
             <span class="author-block">
               <a href="https://www.linkedin.com/in/adarsh-krishnamurthy-90a7ab1/">Adarsh Krishnamurthy</a><sup>1,2</sup>,
             </span>
-            <!-- <span class="author-block">
-              <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a><sup>1,2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
-            </span> -->
           </div>
 
           <div class="is-size-5 publication-authors">
@@ -261,7 +252,7 @@
                 </a>
               </span>
               <!-- Video Link. -->
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -269,7 +260,7 @@
                   </span>
                   <span>Video</span>
                 </a>
-              </span>
+              </span> -->
               <!-- Code Link. -->
               <!-- <span class="link-block">
                 <a href="https://github.com/google/nerfies"
@@ -301,10 +292,6 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video> -->
       <video id="paper-video" autoplay controls muted loop playsinline height="100%">
             <source src="./static/videos/PaperSubmission.mp4"
                     type="video/mp4">
@@ -312,11 +299,40 @@
       </video>
       <h2 class="subtitle has-text-centered">
         High-resolution faster than real time 3D printing thermal simulation of complex geometries.
-        <!-- <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits. -->
       </h2>
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Accurate simulation of the printing process is essential for improving print quality, reducing waste, and optimizing the printing parameters of extrusion-based additive manufacturing. Traditional additive manufacturing simulations are very compute-intensive and are not scalable to simulate even moderately sized geometries. In this paper, we propose a general framework for creating a digital twin of the dynamic printing process by performing physics simulations with the intermediate print geometries. Our framework takes a general extrusion-based additive manufacturing G-code, generates an analysis-suitable voxelized geometry representation from the print schedule, and performs physics-based (transient thermal) simulations of the printing process. Our approach leverages adaptive octree meshes for both geometry representation as well as for fast simulations to address real-time predictions. We demonstrate the effectiveness of our method by simulating the printing of complex geometries at high voxel resolutions with both sparse and dense infills. Our results show that this approach scales to high voxel resolutions and can predict the transient heat distribution as the print progresses. Because the simulation runs faster than real print time, the same engine could, in principle, feed thermal predictions back to the machine controller (e.g., to adjust fan speed or extrusion rate). The present study establishes the computational foundations for a real-time digital twin, which can be used for closed control loop control in the future.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <video id="paper-video" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/PaperSubmission.mp4"
+                    type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
   </div>
 </section>
 
@@ -368,43 +384,6 @@
     </div>
   </div>
 </section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Accurate simulation of the printing process is essential for improving print quality, reducing waste, and optimizing the printing parameters of extrusion-based additive manufacturing. Traditional additive manufacturing simulations are very compute-intensive and are not scalable to simulate even moderately sized geometries. In this paper, we propose a general framework for creating a digital twin of the dynamic printing process by performing physics simulations with the intermediate print geometries. Our framework takes a general extrusion-based additive manufacturing G-code, generates an analysis-suitable voxelized geometry representation from the print schedule, and performs physics-based (transient thermal) simulations of the printing process. Our approach leverages adaptive octree meshes for both geometry representation as well as for fast simulations to address real-time predictions. We demonstrate the effectiveness of our method by simulating the printing of complex geometries at high voxel resolutions with both sparse and dense infills. Our results show that this approach scales to high voxel resolutions and can predict the transient heat distribution as the print progresses. Because the simulation runs faster than real print time, the same engine could, in principle, feed thermal predictions back to the machine controller (e.g., to adjust fan speed or extrusion rate). The present study establishes the computational foundations for a real-time digital twin, which can be used for closed control loop control in the future.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <video id="paper-video" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/PaperSubmission.mp4"
-                    type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <!-- <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
-        </div>
-      </div>
-    </div>
-    <!--/ Paper video. -->
-  </div>
-</section>
-
-
 
 
 <section class="section" id="BibTeX">
